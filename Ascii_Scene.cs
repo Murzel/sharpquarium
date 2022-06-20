@@ -17,14 +17,14 @@ public class Ascii_Scene
 
 	public void Clear()
 	{
-		Scene = new char[Console.WindowHeight][];
-
 		for (int i = 0; i < Scene.Length; i++)
 			Scene[i] = Enumerable.Repeat(' ', Console.WindowWidth).ToArray();
 	}
 
 	public void Restart()
 	{
+		Scene = new char[Console.WindowHeight][];
+
 		Clear();
 	}
 
