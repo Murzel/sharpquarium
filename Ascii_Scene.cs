@@ -9,28 +9,45 @@ namespace asciiquarium;
 public class Ascii_Scene
 {
 	public char[][] Scene;
+	public (int Width, int Height) Dimensions { get; private set; }
+
+	public void Print_Information()
+	{
+		if (Scene.Length < 1)
+		{
+			Console.WriteLine($"Dimensions: Not init");
+			return;
+		}
+
+		Console.WriteLine($"Dimensions: ({Dimensions.Width}|{Dimensions.Height})");
+	}
 
 	public Ascii_Scene()
 	{
 		Restart();
 	}
 
+	public Ascii_Scene(int width, int height)
+	{
+		Restart(width, height);
+	}
+
 	public void Clear()
 	{
 		for (int i = 0; i < Scene.Length; i++)
-			Scene[i] = Enumerable.Repeat(' ', Console.WindowWidth).ToArray();
+			Scene[i] = Enumerable.Repeat(' ', Dimensions.Width).ToArray();
 	}
 
 	public void Restart()
 	{
-		Scene = new char[Console.WindowHeight][];
-
-		Clear();
+		Restart(Console.WindowWidth, Console.WindowHeight);
 	}
 
-	public static void Print_Information()
+	public void Restart(int width, int height)
 	{
-		Console.WriteLine($"Dimensions: ({Console.WindowWidth}|{Console.WindowHeight})");
+		Dimensions = (width, height);
+		Scene = new char[Dimensions.Height][];
+		Clear();
 	}
 
 	public void Show()

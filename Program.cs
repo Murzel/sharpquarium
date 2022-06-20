@@ -51,12 +51,12 @@ public static class Program
 	{
 		if(WindowStateChanged())
 		{
-			Console.Clear();
+			scene.Restart();
 
 			while (WindowStateChanged())
 			{
 				Thread.Sleep(200);
-				Console.Clear();
+				scene.Restart();
 			}
 		}	
 	}
