@@ -24,14 +24,13 @@ public static class Program
  |- =_   | =| | | |  |- = -  |
  |_______|__|_|_|_|__|_______|";
 
+		Console.Clear();
+		Console.SetCursorPosition(0, 0);
 		Console.CursorVisible = false;
+
 		Ascii_Scene scene = new();
 		Ascii_Image img = new(castle_image, 100);
-		Ascii_Image img2 = new(castle_image, 101);
-
-		int i = 1 - img.Size.width, j = Console.WindowWidth - 1;
-
-
+		//Ascii_Image img2 = new(castle_image, 101);
 
 		for (;;)
 		{
